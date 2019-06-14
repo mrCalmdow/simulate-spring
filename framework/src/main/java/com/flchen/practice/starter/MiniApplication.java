@@ -1,7 +1,11 @@
 package com.flchen.practice.starter;
 
+import com.flchen.practice.core.ClassScanner;
 import com.flchen.practice.web.server.TomcatServer;
 import org.apache.catalina.LifecycleException;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * author fl.chen
@@ -17,7 +21,17 @@ public class MiniApplication {
         TomcatServer tomcatServer = new TomcatServer(args);
         try {
             tomcatServer.startServer();
+            List<Class<?>> classes = ClassScanner.scannerClass(cls.getPackage().getName());
+            System.out.println("--------" + classes.size());
+            for (Class<?> clazz : classes) {
+                System.out.println(clazz.getName());
+            }
+
         } catch (LifecycleException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

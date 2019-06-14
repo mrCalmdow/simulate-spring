@@ -1,12 +1,10 @@
 package com.flchen.practice.web.server;
 
-import com.flchen.practice.web.servlet.TestServlet;
+import com.flchen.practice.web.servlet.DispatchServlet;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
-
-import java.io.File;
 
 /**
  * author fl.chen
@@ -34,9 +32,9 @@ public class TomcatServer {
         context.setPath("");
         context.addLifecycleListener(new Tomcat.FixContextListener());
 
-        TestServlet testServlet = new TestServlet();
-        Tomcat.addServlet(context, "testServlet", testServlet).setAsyncSupported(true);
-        context.addServletMappingDecoded("/test.json", "testServlet");
+        DispatchServlet dispatchServlet = new DispatchServlet();
+        Tomcat.addServlet(context, "dispatchServlet", dispatchServlet).setAsyncSupported(true);
+        context.addServletMappingDecoded("/test.json", "dispatchServlet");
         tomcat.getHost().addChild(context);
 
 //        File webXml = new File("framework/src/main/conf");

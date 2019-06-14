@@ -8,7 +8,7 @@ import java.io.IOException;
  * Date 2019-06-14
  * Time 13:52
  **/
-public class TestServlet implements Servlet {
+public class DispatchServlet implements Servlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
 
