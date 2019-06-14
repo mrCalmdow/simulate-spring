@@ -1,0 +1,4 @@
+rootProject.name = 'simulate-spring'
+include 'framework'
+include 'test'
+
