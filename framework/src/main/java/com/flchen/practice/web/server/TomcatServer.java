@@ -34,7 +34,7 @@ public class TomcatServer {
 
         DispatchServlet dispatchServlet = new DispatchServlet();
         Tomcat.addServlet(context, "dispatchServlet", dispatchServlet).setAsyncSupported(true);
-        context.addServletMappingDecoded("/test.json", "dispatchServlet");
+        context.addServletMappingDecoded("/", "dispatchServlet");
         tomcat.getHost().addChild(context);
 
 //        File webXml = new File("framework/src/main/conf");

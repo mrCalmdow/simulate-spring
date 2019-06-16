@@ -1,6 +1,7 @@
 package com.flchen.practice.starter;
 
 import com.flchen.practice.core.ClassScanner;
+import com.flchen.practice.web.handler.HandlerManager;
 import com.flchen.practice.web.server.TomcatServer;
 import org.apache.catalina.LifecycleException;
 
@@ -22,7 +23,14 @@ public class MiniApplication {
         try {
             tomcatServer.startServer();
             List<Class<?>> classes = ClassScanner.scannerClass(cls.getPackage().getName());
-            System.out.println("--------" + classes.size());
+
+            System.out.println("------- scan class begin");
+            HandlerManager.resolveMappingHandler(classes);
+            System.out.println("------- scan class end");
+
+            HandlerManager.mappingHandlers.forEach(e -> {
+                System.out.println("------- mappingHandler: " + e.identityInfo());
+            });
             for (Class<?> clazz : classes) {
                 System.out.println(clazz.getName());
             }

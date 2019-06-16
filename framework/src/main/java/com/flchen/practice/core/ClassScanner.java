@@ -49,7 +49,7 @@ public class ClassScanner {
             JarEntry jarEntry = jarEntries.nextElement();
             String entryName = jarEntry.getName(); // jarEntry举例com/flchen/practice/Application.class
             if (entryName.startsWith(path) && entryName.endsWith(".class")) {
-                String classFullName = entryName.replace('/', '.');
+                String classFullName = entryName.replace('/', '.').substring(0, entryName.length() - 6);
                 classes.add(Class.forName(classFullName));
             }
         }
