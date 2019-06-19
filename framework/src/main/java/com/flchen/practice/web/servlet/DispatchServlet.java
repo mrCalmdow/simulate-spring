@@ -42,6 +42,8 @@ public class DispatchServlet implements Servlet {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

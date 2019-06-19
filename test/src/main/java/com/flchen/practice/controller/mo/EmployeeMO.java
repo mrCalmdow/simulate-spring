@@ -25,4 +25,10 @@ public class EmployeeMO {
     public void setExperience(Integer experience) {
         this.experience = experience;
     }
+
+    @Override
+    public String toString() {
+        int salary = 1000 * experience;
+        return this.name + this.experience + " -- " + salary;
+    }
 }

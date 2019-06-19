@@ -169,7 +169,7 @@
   <!--   errorOnUseBeanInvalidClassAttribute                                -->
   <!--                       Should Jasper issue an error when the value of -->
   <!--                       the class attribute in an useBean action is    -->
-  <!--                       not a valid bean class?  [true]                -->
+  <!--                       not a valid Bean class?  [true]                -->
   <!--                                                                      -->
   <!--   fork                Tell Ant to fork compiles of JSP pages so that -->
   <!--                       a separate JVM is used for JSP page compiles   -->
